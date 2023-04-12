@@ -1,0 +1,53 @@
+<div class="row">
+  <div class="col-12">
+
+    <div class="row">
+      <div class="col-md-4 col-12">
+        <h1>Eventos {{showEventsFuture ? 'futuros': 'pasados'}}</h1>
+      </div>
+      <div class="col-md-4 col-12">
+        <button type="button" class="btn btn-primary btn-block" (click)="getEvents()">{{showEventsFuture ? 'Mostrar pasados' : 'Mostrar futuros'}}</button>
+      </div>
+      <div class="col-md-4 col-12">
+        <button type="button" [routerLink]="['/add-event']" routerLinkActive="router-link-active" class="btn btn-primary btn-block">Añadir evento</button>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+    
+        <ddr-block-list *ngIf="blockItems.length > 0" 
+          [blockItems]="blockItems" 
+          labelNoResults="No hay eventos que mostrar"
+          previousLabel="Previo" 
+          nextLabel="Siguiente" 
+          pagination="10"
+          (itemSelected)="selectItem($event)"
+          (actionSelected)="getAction($event)">
+    
+          <ng-template #templateInfoAdditional let-item="item">
+            <span>{{item.start | date: 'dd/MM/yyyy'}} {{item.end ? ' - ' + (item.end | date: 'dd/MM/yyyy') : ''}}</span>
+          </ng-template>
+    
+          <ng-template #templateHeader let-item="item">
+            <span>{{item.title}}</span>
+          </ng-template>
+    
+          <ng-template #templateData let-item="item">
+    
+            <ddr-block-data-item label="Tipo" [value]="item.className">
+            </ddr-block-data-item>
+            <ddr-block-data-item label="Descripción" [value]="item.description">
+            </ddr-block-data-item>
+    
+          </ng-template>
+    
+        </ddr-block-list>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
