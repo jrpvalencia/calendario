@@ -108,9 +108,5 @@ export const routesNav: Routes = [
   {
     path: 'add_competencias',
     loadChildren: () => import('../pages/competencia/competencia.module').then(m => m.CompetenciaModule)
-  },
-  {
-    path: 'add_resultados',
-    loadChildren: () => import('../pages/resultado/resultado.module').then(m => m.ResultadoModule)
   }
 ];
