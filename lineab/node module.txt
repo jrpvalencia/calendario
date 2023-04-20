@@ -1,0 +1,1 @@
+npm install @fullcalendar/core  @fullcalendar/angular  @fullcalendar/daygrid  @fullcalendar/list @fullcalendar/interaction @fullcalendar/timegrid  --force
