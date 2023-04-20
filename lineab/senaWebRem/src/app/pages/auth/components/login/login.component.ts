@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ActivationCompanyUserModel } from '@models/activation-company-user.model';
+import { ActivationCompanyUserModel } from '@models/calendario.model';
 import { CoreService } from '@services/core.service';
 import { UINotificationService } from '@services/uinotification.service';
 

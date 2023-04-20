@@ -1,5 +1,5 @@
 import { Component, ChangeDetectorRef } from '@angular/core';
-import { CalendarOptions, DateSelectArg, EventClickArg, EventApi } from '@fullcalendar/core';
+import { CalendarOptions, DateSelectArg, EventClickArg, EventApi, ViewApi } from '@fullcalendar/core';
 import interactionPlugin from '@fullcalendar/interaction';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
@@ -42,7 +42,7 @@ export class CalendarioComponent {
     
   };
   currentEvents: EventApi[] = [];
-  jornadas: JornadaModel[] = [];
+  jorna: EventApi[] = [];
   constructor(
     private changeDetector: ChangeDetectorRef,
     private _JornadaService: JornadaService
@@ -50,19 +50,15 @@ export class CalendarioComponent {
     {
     }
 ngOnInit():void{
-  this.getJornada();
 }
-  getJornada(){
-   this._JornadaService.traerJornada().subscribe(
-      jornada => {
-  this.jornadas=jornada;
-      
-  //console.log(jornada, "esta fue");
-  this.jornadas.forEach(jor=>{
-  
-  console.log(jor.horaInicial, "vale mano", jor.horaFinal, jor.diaJornada);
-  })}
-  )}
+
+  // getJornada(){
+  //  this._JornadaService.traerJornada().subscribe(
+  //     jornada => {
+  // this.jorna=jornada;
+  // this.jornadas.forEach(jor=>{
+  // })}
+  // )}
   
 
 
@@ -93,16 +89,16 @@ ngOnInit():void{
     }
   }
 
-  handleEventClick(clickInfo: EventClickArg) {
-    if (confirm(`Quieres eliminar este evento? '${clickInfo.event.title}'`)) {
-      clickInfo.event.remove();
+  handleEventClick(clickInfo: ViewApi) {
+    if (confirm(`Quieres eliminar este evento? '${clickInfo.currentEnd }' fin '${clickInfo.activeEnd} `)) {
+     // clickInfo.event.remove();
     }
   }
 
   handleEvents(events: EventApi[]) {
-    this.currentEvents = events;
+    this.jorna= events;
+    // this.currentEvents = events;
     this.changeDetector.detectChanges();
-    
   }
   
 }

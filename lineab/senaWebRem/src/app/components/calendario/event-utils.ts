@@ -1,13 +1,13 @@
 import { EventInput } from '@fullcalendar/core';
+import { CalendarioModel } from '@models/calendario.model';
 
 let eventGuid = 0;
 const TODAY_STR = new Date().toISOString().replace(/T.*$/, ''); // YYYY-MM-DD of today
-
-export const INITIAL_EVENTS: EventInput[] = [
+var id = this.JornadaService.traerJornada;
+export const INITIAL_EVENTS:CalendarioModel[] = [
   {
-    id: createEventId(),
-    title: 'All-day event',
-    start: TODAY_STR
+    start : this.JornadaService.ge();
+
   },
   {
     id: createEventId(),

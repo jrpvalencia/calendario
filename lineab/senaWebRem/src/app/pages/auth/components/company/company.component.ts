@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { ActivationCompanyUserModel } from '@models/activation-company-user.model';
+import { ActivationCompanyUserModel } from '@models/calendario.model';
 
 @Component({
   selector: 'app-company',

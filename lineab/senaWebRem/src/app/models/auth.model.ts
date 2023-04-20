@@ -1,4 +1,4 @@
-import { ActivationCompanyUserModel } from '@models/activation-company-user.model';
+import { ActivationCompanyUserModel } from '@models/calendario.model';
 import { PersonaModel } from './persona.model';
 
 export interface AuthModel {
